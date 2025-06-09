@@ -12,28 +12,29 @@ jobs:
       - name: Checkout main branch
         uses: actions/checkout@v4
 
-      - name: Copy site to temp folder
+      - name: Save current files to temp
         run: |
-          mkdir temp-site
-          rsync -av --exclude='.git' ./ temp-site/
+          mkdir ../temp-site
+          cp -r * ../temp-site/
+          cp -r .[^.]* ../temp-site/ || true  # Copy hidden files like .html or .well-known
 
-      - name: Switch to gh-pages branch
+      - name: Create orphan gh-pages branch
         run: |
           git checkout --orphan gh-pages
           git reset --hard
           rm -rf *
 
-      - name: Restore site content
+      - name: Restore site from temp folder
         run: |
-          rsync -av temp-site/ ./
-          rm -rf temp-site
+          cp -r ../temp-site/* ./
+          rm -rf ../temp-site
 
-      - name: Setup Git config
+      - name: Setup Git user
         run: |
           git config --global user.name "Rishi Bot"
           git config --global user.email "rishi@example.com"
 
-      - name: Commit & Push to gh-pages
+      - name: Commit and Push to gh-pages
         run: |
           git add .
           git commit -m "Deploy to GitHub Pages"
