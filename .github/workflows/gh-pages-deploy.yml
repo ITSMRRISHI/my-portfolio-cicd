@@ -12,16 +12,29 @@ jobs:
       - name: Checkout main branch
         uses: actions/checkout@v4
 
+      - name: Copy site to temp folder
+        run: |
+          mkdir temp-site
+          rsync -av --exclude='.git' ./ temp-site/
+
+      - name: Switch to gh-pages branch
+        run: |
+          git checkout --orphan gh-pages
+          git reset --hard
+          rm -rf *
+
+      - name: Restore site content
+        run: |
+          rsync -av temp-site/ ./
+          rm -rf temp-site
+
       - name: Setup Git config
         run: |
           git config --global user.name "Rishi Bot"
           git config --global user.email "rishi@example.com"
 
-      - name: Deploy to gh-pages branch
+      - name: Commit & Push to gh-pages
         run: |
-          git checkout --orphan gh-pages
-          git reset --hard
-          cp -r * .
           git add .
           git commit -m "Deploy to GitHub Pages"
           git push --force origin gh-pages
