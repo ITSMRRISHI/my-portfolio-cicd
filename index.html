@@ -1,147 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Rishi Patel - Professional Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rishi Patel - DevOps Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      color: #1e293b;
       margin: 0;
-      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #f0f0f0;
+      overflow-x: hidden;
     }
 
     .container {
-      max-width: 850px;
-      margin: 50px auto;
-      padding: 40px;
-      background-color: #ffffff;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 30px;
+      animation: slideFadeIn 1s ease-in-out;
+    }
+
+    @keyframes slideFadeIn {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
 
-    h1 {
-      font-size: 2.8em;
+    header h1 {
+      font-size: 4em;
       margin: 0;
-      color: #0f172a;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #38bdf8; }
+      to { text-shadow: 0 0 20px #60a5fa; }
     }
 
     .tagline {
-      font-size: 1.1em;
-      color: #475569;
-      margin-top: 10px;
-    }
-
-    section {
-      margin-bottom: 35px;
-    }
-
-    h2 {
-      color: #0f172a;
-      border-bottom: 2px solid #cbd5e1;
-      padding-bottom: 6px;
-      margin-bottom: 15px;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .skills span {
-      background: #0f172a;
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: 30px;
-      font-size: 0.95em;
-    }
-
-    a {
-      color: #1d4ed8;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <header>
-      <h1>Rishi Patel</h1>
-      <p class="tagline">Certified IT Technician | Future DevOps Professional</p>
-    </header>
-
-    <section>
-      <h2>Professional Summary</h2>
-      <p>
-        Motivated IT professional pursuing a Bachelor's degree in Information Technology at AIS (2023–2025).
-        Experienced in hands-on troubleshooting, IT support, and customer service. Passionate about cloud computing,
-        enterprise-scale DevOps, and delivering secure, reliable infrastructure solutions. Eager to contribute to
-        high-performing IT teams and develop scalable automation pipelines.
-      </p>
-    </section>
-
-    <section>
-      <h2>Certifications</h2>
-      <ul>
-        <li>AZ-900: Microsoft Azure Fundamentals</li>
-        <li>MS-900: Microsoft 365 Fundamentals</li>
-        <li>AZ-400: Development for Enterprise DevOps</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Professional Experience</h2>
-
-      <h3>IT Technician (2024 – Present)</h3>
-      <ul>
-        <li>Provided in-depth support for technical hardware and software issues across desktop environments.</li>
-      </ul>
-
-      <h3>Mobile & Laptop Technician – TechCrazy Shop (2023 – Present)</h3>
-      <ul>
-        <li>Specialized in mobile and laptop diagnosis and repair, including system rebuilds and firmware updates.</li>
-        <li>Delivered high-quality support to customers with consistent issue resolution and time management.</li>
-      </ul>
-
-      <h3>Sales Consultant – TechCrazy Shop</h3>
-      <ul>
-        <li>Recommended and demonstrated consumer electronics tailored to customer needs and lifestyle.</li>
-        <li>Met and exceeded sales goals through excellent product knowledge and service delivery.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Core Skills</h2>
-      <div class="skills">
-        <span>IT Support</span><span>System Troubleshooting</span><span>Azure Cloud Basics</span><span>Customer Service</span>
-        <span>Team Collaboration</span><span>Device Configuration</span><span>Problem Solving</span><span>Workstation Setup</span>
-      </div>
-    </section>
-
-    <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:itsmrrishi11@gmail.com">itsmrrishi11@gmail.com</a></p>
-      <p>Phone: +64 226825661</p>
-    </section>
-  </div>
-</body>
-</html>
+      font-size: 1.3em;
